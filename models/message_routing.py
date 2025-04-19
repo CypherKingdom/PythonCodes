@@ -1,4 +1,4 @@
-# Encrypted Message Router You are building a message routing system for a secure communication network. 
+# Encrypted Message Router: You are building a message routing system for a secure communication network. 
 # Each message contains an encrypted routing path and a payload. The routing path is a string of characters 
 # where each character represents a node in the network. The payload is the actual message content. 
 # The system works as follows:
@@ -12,21 +12,19 @@
 # Write a function that processes a queue of messages and returns the final routing sequence and payload for each message.
 
 # Example 1:
-# Input:
-# ['ABcD:Hello', 'X2Yz:World']
-# Output:
-# ['AC:Hello', 'XYY:World']
+# Input: ['AbcD:Hello', 'X2Yz:World']
+# Output: ['AC:Hello', 'XYY:World']
 # Explanation:
-# For 'ABcD:Hello', we keep 'A' (uppercase), skip 'b' (lowercase), keep 'C' (uppercase), and skip 'd' (lowercase), resulting in 'AC:Hello'.
+# For 'AbcD:Hello', we keep 'A' (uppercase), skip 'b' (lowercase), keep 'C' (uppercase), and skip 'd' (lowercase), resulting in 'AC:Hello'.
 # For 'X2Yz:World', we keep 'X' (uppercase), duplicate the next 2 characters ('Y' is kept, 'Z' is skipped), resulting in 'XYY:World'.
 
 # Example 2:
-# Input:
-# ['1AB:Test', 'aB3c:Data']
-# Output:
-# ['AAB:Test', 'B:Data']
+# Input: ['1AB:Test', 'aB3c:Data']
+# Output: ['AB:Test', 'B:Data']
 # Explanation:
-# For '1AB:Test', the digit '1' means duplicate the next character once, which is 'A', so we get 'A' plus
+# For '1AB:Test', the digit '1' means duplicate the next character once, which is 'A', so we get 'A' plus 'B', resulting in 'AB:Test'.
+# For 'aB3c:Data', we skip 'a' (lowercase), keep 'B' (uppercase), and the digit '3' means duplicate the next character twice, which is 'c', 
+# but we skip it, resulting in 'B:Data'.
 
 def process_messages(messages):
     result = []
